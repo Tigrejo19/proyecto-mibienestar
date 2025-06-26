@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe del Proyecto: MiBienestar</title>
+    
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        p {
+            line-height: 1.75; 
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-300">
+
+    <div class="container mx-auto max-w-4xl px-4 py-8 md:py-16">
+
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Informe de Proyecto y Arquitectura</h1>
+            <p class="mt-2 text-2xl font-semibold text-indigo-600 dark:text-indigo-400">MiBienestar</p>
+            <div class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                <p><strong>Autor:</strong> Luis Leonardo Valverde Cadena</p>
+                <p><strong>Fecha:</strong> 26 de junio de 2025</p>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+
+            
+            <section id="vision" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">1. Visión General y Filosofía del Proyecto</h2>
+                <div class="space-y-4">
+                    <p>"MiBienestar" es una aplicación de salud y bienestar que he desarrollado íntegramente en Kotlin para la plataforma Android. Mi objetivo con este proyecto no era crear una simple calculadora más, sino un verdadero asistente de bienestar personal. La idea es que el usuario tenga una herramienta que le motive a desarrollar hábitos más saludables, dándole un control total sobre sus metas y una visión clara de su evolución en el tiempo.</p>
+                    <p>Para garantizar una experiencia segura y sincronizada, todo el backend se apoya en los servicios de Firebase.</p>
+                    <p class="font-semibold text-slate-800 dark:text-slate-200 mt-2">La filosofía central de "MiBienestar" se basa en la precisión y la honestidad con el usuario.</p>
+                    <p>Me di cuenta de que las herramientas más comunes, como el Índice de Masa Corporal (IMC), aunque están avaladas por la OMS, son a menudo imprecisas porque no pueden diferenciar entre masa grasa y masa muscular. Esto puede llevar a diagnósticos erróneos y frustración. Por eso, el corazón de mi aplicación es ofrecer un análisis mucho más profundo y fiable.</p>
+                </div>
+            </section>
+
+            
+            <section id="innovacion" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">2. Innovación Central: El Sistema de Diagnóstico Dual</h2>
+                <div class="space-y-4">
+                    <p>La principal innovación del proyecto es un sistema de diagnóstico de dos niveles que diseñé para ofrecer un análisis de la composición corporal con una precisión muy superior a la de otras apps del mercado.</p>
+                    <ul class="list-disc list-inside space-y-2 pl-4">
+                        <li><strong>Nivel 1 - Cribado Estándar:</strong> La app incluye un cálculo de IMC tradicional, útil como un primer indicador rápido.</li>
+                        <li><strong>Nivel 2 - Análisis Avanzado:</strong> Para ir más allá, he implementado un algoritmo basado en la <strong>fórmula de la Marina de los Estados Unidos</strong>. Este método, validado científicamente, utiliza medidas como el perímetro del cuello y la cintura para estimar el porcentaje de grasa corporal con un margen de error muy bajo (±3-4%).</li>
+                    </ul>
+                    <p>La sinergia de estos dos cálculos es lo que hace que "MiBienestar" sea tan potente. Permite identificar y diagnosticar correctamente casos complejos que el IMC por sí solo no puede, como la <strong>obesidad sarcopénica ("Skinny Fat")</strong> o, por el contrario, valorar correctamente a <strong>usuarios con una gran masa muscular</strong>, cuyo IMC podría dar un falso resultado de sobrepeso. Esta capacidad para ofrecer un diagnóstico diferencial y preciso es lo que le da a la app una fiabilidad de nivel clínico.</p>
+                    <p>Además, he incluido una funcionalidad de "Chequeo Rápido", basada en estudios que validan el perímetro del cuello como un excelente marcador de riesgo. Se presenta al usuario de forma transparente, explicando sus limitaciones pero ofreciendo un valor añadido por su sencillez.</p>
+                </div>
+            </section>
+
+            
+            <section id="arquitectura" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">3. Arquitectura y Estructura del Software</h2>
+                <div class="space-y-4">
+                    <p>He construido la aplicación siguiendo un patrón de diseño moderno y escalable, utilizando las arquitecturas recomendadas por Google para asegurar un código robusto y mantenible.</p>
+                    <ul class="space-y-2 pl-4">
+                        <li><strong>Actividad Principal y Navegación:</strong> La navegación se centraliza en una única `MainActivity` que utiliza un `ViewPager2` para gestionar las tres pestañas principales (IMC, Sueño, Progreso). Esto permite una navegación moderna y fluida, tanto por deslizamiento lateral como por los iconos de la barra inferior.</li>
+                        <li><strong>Flujos Aislados:</strong> Para tareas específicas como el inicio de sesión (`LoginActivity`) o la gestión de metas (`GoalsActivity`), he optado por usar Actividades separadas. Esto mantiene la `MainActivity` limpia y dedicada exclusivamente a la navegación principal.</li>
+                    </ul>
+                    <p class="mt-4 font-semibold text-slate-800 dark:text-slate-200">La estructura de archivos está organizada de forma lógica por funcionalidad:</p>
+                    <ul class="list-disc list-inside space-y-1 pl-4 text-sm bg-slate-100 dark:bg-slate-800 p-4 rounded-md">
+                        <li><strong>Actividades Principales:</strong> `MainActivity`, `LoginActivity`, `GoalsActivity`.</li>
+                        <li><strong>Fragmentos:</strong> `BmiFragment`, `SleepFragment`, `HistoryFragment`, `GoalsFragment`.</li>
+                        <li><strong>Adaptadores:</strong> `ViewPagerAdapter`, `HistoryAdapter`, `WakeUpAdapter`.</li>
+                        <li><strong>Modelos de Datos (`data class`):</strong> `BmiLog`, `SleepLog`, `QuickCheckLog`, `UserGoals`.</li>
+                        <li><strong>Lógica de Negocio y Ayudantes:</strong> `DiagnosisUtils`, `NotificationUtils`, `ReminderWorker`.</li>
+                    </ul>
+                </div>
+            </section>
+
+            
+            <section id="tecnologias" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">4. Tecnologías y Librerías Clave</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">100% Kotlin</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">Firebase Suite</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">Coroutines</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">WorkManager</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">MPAndroidChart</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">Material Design 3</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">View Binding</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">ViewPager2</p></div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">RecyclerView</p></div>
+                </div>
+            </section>
+
+            
+            <section id="futuro" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">5. Visión a Futuro</h2>
+                <div class="space-y-4">
+                    <p>El objetivo es que "MiBienestar" evolucione de una herramienta de registro a un compañero de salud proactivo. La implementación del sistema de Metas y Notificaciones ha sido el primer paso en esta dirección. Futuras iteraciones podrían incluir módulos de nutrición, actividad física y una visualización aún más detallada del progreso del usuario.</p>
+                </div>
+            </section>
+        </main>
+
+       
+        <footer class="text-center mt-16 text-sm text-slate-500 dark:text-slate-400">
+            <p>&copy; 2025 Luis Leonardo Valverde Cadena. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
