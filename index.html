@@ -1,122 +1,204 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe del Proyecto: MiBienestar</title>
-    
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-   
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Informe de Proyecto: MiBienestar</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
         }
-        
-        html {
-            scroll-behavior: smooth;
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            border: 1px solid #e9ecef;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            border-bottom: 2px solid #6200EE;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            color: #343a40;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #6200EE;
+            border-left: 4px solid #6200EE;
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #495057;
         }
         p {
-            line-height: 1.75; 
+            font-size: 1.1em;
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+        strong {
+            color: #000;
+            font-weight: 600;
+        }
+        pre {
+            background-color: #eef2f5;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.95em;
+            border: 1px solid #d6dde4;
+        }
+        code {
+            font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.9em;
+            color: #6c757d;
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-300">
+<body>
 
-    <div class="container mx-auto max-w-4xl px-4 py-8 md:py-16">
-
-        
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Informe de Proyecto y Arquitectura</h1>
-            <p class="mt-2 text-2xl font-semibold text-indigo-600 dark:text-indigo-400">MiBienestar</p>
-            <div class="mt-4 text-sm text-slate-500 dark:text-slate-400">
-                <p><strong>Autor:</strong> Luis Leonardo Valverde Cadena</p>
-                <p><strong>Fecha:</strong> 26 de junio de 2025</p>
-            </div>
+    <div class="container">
+        <header>
+            <h1>Informe de Proyecto y Arquitectura: MiBienestar</h1>
+            <p style="text-align:center; font-style:italic; color:#6c757d;">
+                <strong>Autor:</strong> Luis Leonardo Valverde Cadena<br>
+                <strong>Versión:</strong> 1.0 (Fase de Desarrollo Avanzada)<br>
+                <strong>Fecha:</strong> 04 de julio de 2025
+            </p>
         </header>
 
-        <main class="space-y-8">
+        <section>
+            <h2>1. Visión General y Filosofía del Proyecto</h2>
+            <p>
+                <strong>MiBienestar</strong> es una aplicación de salud y bienestar desarrollada íntegramente en Kotlin para la plataforma Android. El objetivo del proyecto es ofrecer al usuario un asistente de bienestar personal, una herramienta que motive el desarrollo de hábitos saludables a través de un control preciso de sus metas y una visión clara de su evolución en el tiempo.
+            </p>
+            <p>
+                Para garantizar una experiencia de usuario segura, persistente y sincronizada, todo el backend de la aplicación se apoya en los servicios de <strong>Firebase</strong>, incluyendo autenticación y base de datos en tiempo real.
+            </p>
+            <p>
+                La filosofía central de <strong>MiBienestar</strong> se basa en la <strong>precisión diagnóstica y la honestidad con el usuario</strong>. El proyecto parte de la premisa de que las herramientas de cribado más comunes, como el Índice de Masa Corporal (IMC), aunque están avaladas por la OMS, son a menudo insuficientes al no diferenciar entre masa grasa y masa muscular. Esta limitación puede conducir a diagnósticos erróneos y frustración en el usuario. Por ello, el corazón de la aplicación es ofrecer un análisis de la composición corporal significativamente más profundo y fiable.
+            </p>
+        </section>
 
-            
-            <section id="vision" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">1. Visión General y Filosofía del Proyecto</h2>
-                <div class="space-y-4">
-                    <p>"MiBienestar" es una aplicación de salud y bienestar que he desarrollado íntegramente en Kotlin para la plataforma Android. Mi objetivo con este proyecto no era crear una simple calculadora más, sino un verdadero asistente de bienestar personal. La idea es que el usuario tenga una herramienta que le motive a desarrollar hábitos más saludables, dándole un control total sobre sus metas y una visión clara de su evolución en el tiempo.</p>
-                    <p>Para garantizar una experiencia segura y sincronizada, todo el backend se apoya en los servicios de Firebase.</p>
-                    <p class="font-semibold text-slate-800 dark:text-slate-200 mt-2">La filosofía central de "MiBienestar" se basa en la precisión y la honestidad con el usuario.</p>
-                    <p>Me di cuenta de que las herramientas más comunes, como el Índice de Masa Corporal (IMC), aunque están avaladas por la OMS, son a menudo imprecisas porque no pueden diferenciar entre masa grasa y masa muscular. Esto puede llevar a diagnósticos erróneos y frustración. Por eso, el corazón de mi aplicación es ofrecer un análisis mucho más profundo y fiable.</p>
-                </div>
-            </section>
+        <section>
+            <h2>2. Innovación Central: El Sistema de Diagnóstico Multi-paramétrico</h2>
+            <p>
+                La principal innovación del proyecto es un <strong>sistema de diagnóstico jerárquico y multi-paramétrico</strong> diseñado para ofrecer un análisis de la composición corporal con una precisión muy superior a la de otras aplicaciones del mercado. Este motor de diagnóstico funciona para ambos sexos, con umbrales y fórmulas específicas para cada uno.
+            </p>
+            <p>
+                El sistema se basa en el análisis combinado de 5 indicadores clave:
+            </p>
+            <ul>
+                <li><strong>IMC (Índice de Masa Corporal):</strong> Utilizado como un primer filtro rápido.</li>
+                <li><strong>ICC (Índice Cintura-Cadera):</strong> Potente predictor de riesgo cardiovascular.</li>
+                <li><strong>ICA (Índice Cintura-Altura):</strong> Indicador moderno de grasa abdominal y riesgo metabólico.</li>
+                <li><strong>% Grasa (BCA - Hodgdon-Beckett):</strong> Estimación de grasa corporal basada en perímetros, independiente del IMC. Es crucial para identificar perfiles atléticos.</li>
+                <li><strong>% Grasa (CUN-BAE):</strong> Fórmula clínica que incluye la edad para una estimación de grasa robusta, muy eficaz para detectar la obesidad normopeso.</li>
+            </ul>
+            <p>
+                La sinergia de estos indicadores se gestiona a través de un <strong>algoritmo de clasificación jerárquica</strong> que prioriza los resultados. Por ejemplo, un IMC bajo o un riesgo cardiovascular alto (detectado por ICC/ICA) tienen prioridad sobre otros diagnósticos. Esta lógica permite identificar y diagnosticar correctamente casos complejos que un método simple no podría, como la <strong>obesidad normopeso ("Falso Delgado")</strong> o valorar adecuadamente a <strong>usuarios con una gran masa muscular</strong>, cuyo IMC podría dar un falso resultado de sobrepeso. Esta capacidad para ofrecer un diagnóstico diferencial y preciso es lo que le confiere a la app una fiabilidad de nivel clínico para fines de cribado.
+            </p>
+        </section>
 
-            
-            <section id="innovacion" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">2. Innovación Central: El Sistema de Diagnóstico Dual</h2>
-                <div class="space-y-4">
-                    <p>La principal innovación del proyecto es un sistema de diagnóstico de dos niveles que diseñé para ofrecer un análisis de la composición corporal con una precisión muy superior a la de otras apps del mercado.</p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li><strong>Nivel 1 - Cribado Estándar:</strong> La app incluye un cálculo de IMC tradicional, útil como un primer indicador rápido.</li>
-                        <li><strong>Nivel 2 - Análisis Avanzado:</strong> Para ir más allá, he implementado un algoritmo basado en la <strong>fórmula de la Marina de los Estados Unidos</strong>. Este método, validado científicamente, utiliza medidas como el perímetro del cuello y la cintura para estimar el porcentaje de grasa corporal con un margen de error muy bajo (±3-4%).</li>
-                    </ul>
-                    <p>La sinergia de estos dos cálculos es lo que hace que "MiBienestar" sea tan potente. Permite identificar y diagnosticar correctamente casos complejos que el IMC por sí solo no puede, como la <strong>obesidad sarcopénica ("Skinny Fat")</strong> o, por el contrario, valorar correctamente a <strong>usuarios con una gran masa muscular</strong>, cuyo IMC podría dar un falso resultado de sobrepeso. Esta capacidad para ofrecer un diagnóstico diferencial y preciso es lo que le da a la app una fiabilidad de nivel clínico.</p>
-                    <p>Además, he incluido una funcionalidad de "Chequeo Rápido", basada en estudios que validan el perímetro del cuello como un excelente marcador de riesgo. Se presenta al usuario de forma transparente, explicando sus limitaciones pero ofreciendo un valor añadido por su sencillez.</p>
-                </div>
-            </section>
+        <section>
+            <h2>3. Arquitectura y Estructura del Software</h2>
+            <h3>3.1. Patrón Arquitectónico y de Navegación</h3>
+                <ul>
+                    <li><strong>Actividad Única Principal (Single-Activity):</strong> La navegación principal se centraliza en <code>MainActivity</code>, que actúa como anfitrión de los fragmentos principales.</li>
+                    <li><strong>Navegación por Pestañas:</strong> Se utiliza un <code>ViewPager2</code> gestionado por un <code>ViewPagerAdapter</code> para la navegación fluida entre las tres pestañas principales (IMC, Sueño, Progreso). La sincronización con la <code>BottomNavigationView</code> ofrece una experiencia de usuario moderna y estándar.</li>
+                    <li><strong>Flujos Aislados:</strong> Tareas específicas como el inicio de sesión (<code>LoginActivity</code>) o la gestión de metas (<code>GoalsActivity</code>) se manejan en Actividades separadas para mantener la <code>MainActivity</code> limpia y dedicada exclusivamente a la navegación principal.</li>
+                </ul>
 
-            
-            <section id="arquitectura" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">3. Arquitectura y Estructura del Software</h2>
-                <div class="space-y-4">
-                    <p>He construido la aplicación siguiendo un patrón de diseño moderno y escalable, utilizando las arquitecturas recomendadas por Google para asegurar un código robusto y mantenible.</p>
-                    <ul class="space-y-2 pl-4">
-                        <li><strong>Actividad Principal y Navegación:</strong> La navegación se centraliza en una única "MainActivity" que utiliza un "ViewPager2" para gestionar las tres pestañas principales (IMC, Sueño, Progreso). Esto permite una navegación moderna y fluida, tanto por deslizamiento lateral como por los iconos de la barra inferior.</li>
-                        <li><strong>Flujos Aislados:</strong> Para tareas específicas como el inicio de sesión "LoginActivity" o la gestión de metas "GoalsActivity", he optado por usar Actividades separadas. Esto mantiene la "MainActivity" limpia y dedicada exclusivamente a la navegación principal.</li>
-                    </ul>
-                    <p class="mt-4 font-semibold text-slate-800 dark:text-slate-200">La estructura de archivos está organizada de forma lógica por funcionalidad:</p>
-                    <ul class="list-disc list-inside space-y-1 pl-4 text-sm bg-slate-100 dark:bg-slate-800 p-4 rounded-md">
-                        <li><strong>Actividades Principales:</strong> "MainActivity"  "LoginActivity"  "GoalsActivity"</li>
-                        <li><strong>Fragmentos:</strong> "BmiFragment"  "SleepFragment"  "HistoryFragment"  "GoalsFragment"</li>
-                        <li><strong>Adaptadores:</strong> "ViewPagerAdapter"  "HistoryAdapter"  "WakeUpAdapter"</li>
-                        <li><strong>Modelos de Datos:</strong> "BmiLog"  "SleepLog"  "QuickCheckLog"  "UserGoals"</li>
-                        <li><strong>Lógica de Negocio y Ayudantes:</strong> "DiagnosisUtils"  "NotificationUtils" "ReminderWorker"</li>
-                    </ul>
-                </div>
-            </section>
+            <h3>3.2. Componentes Principales</h3>
+                <ul>
+                    <li><strong>Fragmentos:</strong> Cada pestaña principal es gestionada por un Fragmento: <code>BmiFragment</code>, <code>SleepFragment</code>, <code>HistoryFragment</code> y <code>GoalsFragment</code>.</li>
+                    <li><strong>Adaptadores:</strong> Responsables de poblar las vistas de listas y paginadores, como <code>HistoryAdapter</code>, <code>WakeUpAdapter</code> y <code>ViewPagerAdapter</code>.</li>
+                    <li><strong>Modelos de Datos:</strong> Clases de datos de Kotlin (`BmiLog`, `SleepLog`, etc.) anotadas con <code>@Keep</code> para garantizar la compatibilidad con ProGuard en las versiones de producción.</li>
+                    <li><strong>Lógica de Negocio y Ayudantes:</strong> Clases como <code>DiagnosisUtils</code> (el "cerebro" de la aplicación), <code>NotificationUtils</code> y <code>ReminderWorker</code> (que gestiona tareas en segundo plano con WorkManager).</li>
+                </ul>
+        </section>
+        
+        <section>
+            <h2>4. Estructura de Directorios</h2>
+            <p>La organización de los paquetes sigue las convenciones estándar de Android, agrupando los archivos por su función arquitectónica para una mayor mantenibilidad.</p>
+            <pre><code>app/src/main/
+├── java/com/tigrejo19/calculadoraimc/
+│   ├── (Actividades: LoginActivity, MainActivity, etc.)
+│   ├── (Fragmentos: BmiFragment, SleepFragment, etc.)
+│   ├── (Adaptadores: HistoryAdapter, ViewPagerAdapter, etc.)
+│   ├── (Modelos: BmiLog, SleepLog, UserGoals, etc.)
+│   └── (Utils, Workers, etc.)
+│
+└── res/
+    ├── layout/           (Archivos XML de diseño)
+    ├── values/           (colors.xml, strings.xml, themes.xml)
+    ├── drawable/         (Iconos y recursos gráficos)
+    └── menu/             (Archivos XML de menús)
+</code></pre>
+        </section>
 
-            
-            <section id="tecnologias" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">4. Tecnologías y Librerías Clave</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">100% Kotlin</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">Firebase Suite</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">Coroutines</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">WorkManager</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">MPAndroidChart</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">Material Design 3</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">View Binding</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">ViewPager2</p></div>
-                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg"><p class="font-medium">RecyclerView</p></div>
-                </div>
-            </section>
+        <section>
+            <h2>5. Archivos de Configuración y Build</h2>
+            <ul>
+                <li><strong><code>build.gradle.kts</code>:</strong> Define la configuración del proyecto, incluyendo SDK de compilación, ID de la aplicación y la gestión de plugins.</li>
+                <li><strong><code>libs.versions.toml</code>:</strong> Gestiona las dependencias de forma centralizada (Version Catalog), definiendo las versiones de librerías clave como Firebase, Material Design, Coroutines, etc.</li>
+                <li><strong><code>proguard-rules.pro</code>:</strong> Configura las reglas de ProGuard para las builds de producción, ofuscando y reduciendo el código para optimizar el tamaño de la app.</li>
+                <li><strong><code>AndroidManifest.xml</code>:</strong> Actúa como el "documento de identidad" de la app, declarando actividades, permisos (como notificaciones) y la configuración de la aplicación.</li>
+            </ul>
+        </section>
 
-            
-            <section id="futuro" class="bg-white dark:bg-slate-800/50 rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-200 dark:ring-slate-700">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">5. Visión a Futuro</h2>
-                <div class="space-y-4">
-                    <p>El objetivo es que "MiBienestar" evolucione de una herramienta de registro a un compañero de salud proactivo. La implementación del sistema de Metas y Notificaciones ha sido el primer paso en esta dirección. Futuras iteraciones podrían incluir módulos de nutrición, actividad física y una visualización aún más detallada del progreso del usuario.</p>
-                </div>
-            </section>
-        </main>
+        <section>
+            <h2>6. Tecnologías y Librerías Clave</h2>
+            <ul>
+                <li><strong>Lenguaje:</strong> 100% Kotlin.</li>
+                <li><strong>Backend:</strong> Firebase Suite (Authentication, Firestore Database, App Check).</li>
+                <li><strong>Asincronía:</strong> Coroutines de Kotlin.</li>
+                <li><strong>Tareas en Segundo Plano:</strong> WorkManager.</li>
+                <li><strong>Visualización de Datos:</strong> MPAndroidChart.</li>
+                <li><strong>Interfaz de Usuario:</strong> Material Design 3, View Binding, ViewPager2, RecyclerView.</li>
+            </ul>
+        </section>
 
-       
-        <footer class="text-center mt-16 text-sm text-slate-500 dark:text-slate-400">
-            <p>&copy; 2025 tigredev Todos los derechos reservados.</p>
+        <section>
+            <h2>7. Visión a Futuro</h2>
+            <p>
+                El objetivo a largo plazo es que <strong>MiBienestar</strong> evolucione de una herramienta de registro a un compañero de salud proactivo. La implementación del sistema de Metas y Notificaciones ha sido el primer paso en esta dirección. Futuras iteraciones podrían incluir módulos de nutrición, planes de actividad física y una visualización de datos históricos aún más detallada e interactiva.
+            </p>
+        </section>
+
+        <footer>
+            <p>© 2025 tigredev. Todos los derechos reservados.</p>
         </footer>
-
     </div>
+
 </body>
 </html>
