@@ -88,115 +88,65 @@
 
     <div class="container">
         <header>
-            <h1>Informe de Proyecto y Arquitectura: MiBienestar</h1>
+            <h1>MiBienestar · Información del Proyecto</h1>
             <p style="text-align:center; font-style:italic; color:#6c757d;">
-                <strong>Autor:</strong> Luis Leonardo Valverde Cadena<br>
-                <strong>Versión:</strong> 1.0 (Fase de Desarrollo Avanzada)<br>
-                <strong>Fecha:</strong> 04 de julio de 2025
+                <strong>Editor:</strong> tigredev<br>
+                <strong>Revisión documental:</strong> 8 de octubre de 2026<br>
+                <strong>Estado:</strong> Resumen informativo no clínico
             </p>
         </header>
 
         <section>
-            <h2>1. Visión General y Filosofía del Proyecto</h2>
-            <p>
-                <strong>MiBienestar</strong> es una aplicación de salud y bienestar desarrollada íntegramente en Kotlin para la plataforma Android. El objetivo del proyecto es ofrecer al usuario un asistente de bienestar personal, una herramienta que motive el desarrollo de hábitos saludables a través de un control preciso de sus metas y una visión clara de su evolución en el tiempo.
-            </p>
-            <p>
-                Para garantizar una experiencia de usuario segura, persistente y sincronizada, todo el backend de la aplicación se apoya en los servicios de <strong>Firebase</strong>, incluyendo autenticación y base de datos en tiempo real.
-            </p>
-            <p>
-                La filosofía central de <strong>MiBienestar</strong> se basa en la <strong>precisión diagnóstica y la honestidad con el usuario</strong>. El proyecto parte de la premisa de que las herramientas de cribado más comunes, como el Índice de Masa Corporal (IMC), aunque están avaladas por la OMS, son a menudo insuficientes al no diferenciar entre masa grasa y masa muscular. Esta limitación puede conducir a diagnósticos erróneos y frustración en el usuario. Por ello, el corazón de la aplicación es ofrecer un análisis de la composición corporal significativamente más profundo y fiable.
-            </p>
+            <h2>1. Naturaleza y alcance de MiBienestar</h2>
+            <p><strong>MiBienestar</strong> es una aplicación Android de seguimiento personal de bienestar. Permite registrar y consultar indicadores, objetivos y hábitos relacionados con peso, composición corporal estimada, sueño, hidratación, nutrición y actividad física.</p>
+            <p>MiBienestar <strong>no es un dispositivo médico</strong>. No está destinada a diagnosticar, tratar, curar ni prevenir enfermedades. Las fórmulas, clasificaciones y recomendaciones proporcionan estimaciones orientativas que pueden ser inexactas y no sustituyen la valoración de un profesional sanitario.</p>
         </section>
 
         <section>
-            <h2>2. Innovación Central: El Sistema de Diagnóstico Multi-paramétrico</h2>
-            <p>
-                La principal innovación del proyecto es un <strong>sistema de diagnóstico jerárquico y multi-paramétrico</strong> diseñado para ofrecer un análisis de la composición corporal con una precisión muy superior a la de otras aplicaciones del mercado. Este motor de diagnóstico funciona para ambos sexos, con umbrales y fórmulas específicas para cada uno.
-            </p>
-            <p>
-                El sistema se basa en el análisis combinado de 5 indicadores clave:
-            </p>
+            <h2>2. Funciones del producto</h2>
+            <h3>2.1. Funciones gratuitas</h3>
+            <p>El diseño funcional contempla chequeo rápido, cálculo del IMC, herramientas de sueño, hidratación y consulta de estadísticas e historial personal. Su disponibilidad exacta depende de la versión de la aplicación y de los permisos y servicios habilitados.</p>
+            <h3>2.2. Funciones Premium</h3>
+            <p>El catálogo Premium contempla estimaciones avanzadas de composición corporal, objetivos de nutrición, análisis opcionales de comida y ejercicio mediante inteligencia artificial y funciones de asistente. El acceso está condicionado a la verificación de los derechos de suscripción y a la versión distribuida.</p>
+            <p>Los resultados generados por inteligencia artificial pueden contener errores y deben revisarse antes de utilizarlos. No constituyen consejo médico individualizado.</p>
+        </section>
+
+        <section>
+            <h2>3. Arquitectura técnica</h2>
+            <p>El cliente Android utiliza Kotlin, componentes Android y Material 3. Las funciones de cuenta y sincronización se apoyan en servicios de Firebase y Google Cloud, con controles de autenticación y acceso. Algunas operaciones Premium utilizan Google Play Billing y, a solicitud del usuario, servicios de IA.</p>
+            <p>La implementación técnica evoluciona con el producto. Este documento no es una especificación de versión ni una garantía de disponibilidad continua, entrega absoluta de notificaciones o precisión clínica.</p>
+        </section>
+
+        <section>
+            <h2>4. Protección de datos</h2>
+            <p>La aplicación puede tratar información personal y de bienestar, incluida información de salud especialmente protegida según la legislación aplicable. Las finalidades, bases legales, destinatarios, transferencias, conservación, medidas de protección y derechos se describen en la documentación jurídica oficial, que prevalece sobre este resumen divulgativo.</p>
             <ul>
-                <li><strong>IMC (Índice de Masa Corporal):</strong> Utilizado como un primer filtro rápido.</li>
-                <li><strong>ICC (Índice Cintura-Cadera):</strong> Potente predictor de riesgo cardiovascular.</li>
-                <li><strong>ICA (Índice Cintura-Altura):</strong> Indicador moderno de grasa abdominal y riesgo metabólico.</li>
-                <li><strong>% Grasa (BCA - Hodgdon-Beckett):</strong> Estimación de grasa corporal basada en perímetros, independiente del IMC. Es crucial para identificar perfiles atléticos.</li>
-                <li><strong>% Grasa (CUN-BAE):</strong> Fórmula clínica que incluye la edad para una estimación de grasa robusta, muy eficaz para detectar la obesidad normopeso.</li>
-            </ul>
-            <p>
-                La sinergia de estos indicadores se gestiona a través de un <strong>algoritmo de clasificación jerárquica</strong> que prioriza los resultados. Por ejemplo, un IMC bajo o un riesgo cardiovascular alto (detectado por ICC/ICA) tienen prioridad sobre otros diagnósticos. Esta lógica permite identificar y diagnosticar correctamente casos complejos que un método simple no podría, como la <strong>obesidad normopeso ("Falso Delgado")</strong> o valorar adecuadamente a <strong>usuarios con una gran masa muscular</strong>, cuyo IMC podría dar un falso resultado de sobrepeso. Esta capacidad para ofrecer un diagnóstico diferencial y preciso es lo que le confiere a la app una fiabilidad de nivel clínico para fines de cribado.
-            </p>
-        </section>
-
-        <section>
-            <h2>3. Arquitectura y Estructura del Software</h2>
-            <h3>3.1. Patrón Arquitectónico y de Navegación</h3>
-                <ul>
-                    <li><strong>Actividad Única Principal (Single-Activity):</strong> La navegación principal se centraliza en <code>MainActivity</code>, que actúa como anfitrión de los fragmentos principales.</li>
-                    <li><strong>Navegación por Pestañas:</strong> Se utiliza un <code>ViewPager2</code> gestionado por un <code>ViewPagerAdapter</code> para la navegación fluida entre las tres pestañas principales (IMC, Sueño, Progreso). La sincronización con la <code>BottomNavigationView</code> ofrece una experiencia de usuario moderna y estándar.</li>
-                    <li><strong>Flujos Aislados:</strong> Tareas específicas como el inicio de sesión (<code>LoginActivity</code>) o la gestión de metas (<code>GoalsActivity</code>) se manejan en Actividades separadas para mantener la <code>MainActivity</code> limpia y dedicada exclusivamente a la navegación principal.</li>
-                </ul>
-
-            <h3>3.2. Componentes Principales</h3>
-                <ul>
-                    <li><strong>Fragmentos:</strong> Cada pestaña principal es gestionada por un Fragmento: <code>BmiFragment</code>, <code>SleepFragment</code>, <code>HistoryFragment</code> y <code>GoalsFragment</code>.</li>
-                    <li><strong>Adaptadores:</strong> Responsables de poblar las vistas de listas y paginadores, como <code>HistoryAdapter</code>, <code>WakeUpAdapter</code> y <code>ViewPagerAdapter</code>.</li>
-                    <li><strong>Modelos de Datos:</strong> Clases de datos de Kotlin (`BmiLog`, `SleepLog`, etc.) anotadas con <code>@Keep</code> para garantizar la compatibilidad con ProGuard en las versiones de producción.</li>
-                    <li><strong>Lógica de Negocio y Ayudantes:</strong> Clases como <code>DiagnosisUtils</code> (el "cerebro" de la aplicación), <code>NotificationUtils</code> y <code>ReminderWorker</code> (que gestiona tareas en segundo plano con WorkManager).</li>
-                </ul>
-        </section>
-        
-        <section>
-            <h2>4. Estructura de Directorios</h2>
-            <p>La organización de los paquetes sigue las convenciones estándar de Android, agrupando los archivos por su función arquitectónica para una mayor mantenibilidad.</p>
-            <pre><code>app/src/main/
-├── java/com/tigrejo19/calculadoraimc/
-│   ├── (Actividades: LoginActivity, MainActivity, etc.)
-│   ├── (Fragmentos: BmiFragment, SleepFragment, etc.)
-│   ├── (Adaptadores: HistoryAdapter, ViewPagerAdapter, etc.)
-│   ├── (Modelos: BmiLog, SleepLog, UserGoals, etc.)
-│   └── (Utils, Workers, etc.)
-│
-└── res/
-    ├── layout/           (Archivos XML de diseño)
-    ├── values/           (colors.xml, strings.xml, themes.xml)
-    ├── drawable/         (Iconos y recursos gráficos)
-    └── menu/             (Archivos XML de menús)
-</code></pre>
-        </section>
-
-        <section>
-            <h2>5. Archivos de Configuración y Build</h2>
-            <ul>
-                <li><strong><code>build.gradle.kts</code>:</strong> Define la configuración del proyecto, incluyendo SDK de compilación, ID de la aplicación y la gestión de plugins.</li>
-                <li><strong><code>libs.versions.toml</code>:</strong> Gestiona las dependencias de forma centralizada (Version Catalog), definiendo las versiones de librerías clave como Firebase, Material Design, Coroutines, etc.</li>
-                <li><strong><code>proguard-rules.pro</code>:</strong> Configura las reglas de ProGuard para las builds de producción, ofuscando y reduciendo el código para optimizar el tamaño de la app.</li>
-                <li><strong><code>AndroidManifest.xml</code>:</strong> Actúa como el "documento de identidad" de la app, declarando actividades, permisos (como notificaciones) y la configuración de la aplicación.</li>
+                <li><a href="https://tigrejo19.github.io/politicaprivacidad-mibienestar/">Política de Privacidad oficial</a></li>
+                <li><a href="https://tigrejo19.github.io/politicaprivacidad-mibienestar/terminos.html">Términos y Condiciones</a></li>
+                <li><a href="https://tigrejo19.github.io/politicaprivacidad-mibienestar/eliminar-cuenta.html">Eliminación de cuenta y datos</a></li>
+                <li><a href="https://tigrejo19.github.io/politicaprivacidad-mibienestar/aviso-legal.html">Aviso legal y contacto</a></li>
             </ul>
         </section>
 
         <section>
-            <h2>6. Tecnologías y Librerías Clave</h2>
-            <ul>
-                <li><strong>Lenguaje:</strong> 100% Kotlin.</li>
-                <li><strong>Backend:</strong> Firebase Suite (Authentication, Firestore Database, App Check).</li>
-                <li><strong>Asincronía:</strong> Coroutines de Kotlin.</li>
-                <li><strong>Tareas en Segundo Plano:</strong> WorkManager.</li>
-                <li><strong>Visualización de Datos:</strong> MPAndroidChart.</li>
-                <li><strong>Interfaz de Usuario:</strong> Material Design 3, View Binding, ViewPager2, RecyclerView.</li>
-            </ul>
+            <h2>5. Exactitud y límites de los cálculos</h2>
+            <p>El IMC, los índices antropométricos y las estimaciones de composición corporal tienen limitaciones individuales y dependen de los datos introducidos. No permiten afirmar por sí solos un diagnóstico ni medir con exactitud el riesgo cardiovascular de una persona.</p>
+            <p>Las estimaciones de sueño, hidratación, alimentación y actividad física no sustituyen la exploración clínica ni las mediciones realizadas por profesionales con instrumental adecuado.</p>
         </section>
 
         <section>
-            <h2>7. Visión a Futuro</h2>
-            <p>
-                El objetivo a largo plazo es que <strong>MiBienestar</strong> evolucione de una herramienta de registro a un compañero de salud proactivo. La implementación del sistema de Metas y Notificaciones ha sido el primer paso en esta dirección. Futuras iteraciones podrían incluir módulos de nutrición, planes de actividad física y una visualización de datos históricos aún más detallada e interactiva.
-            </p>
+            <h2>6. Calidad, seguridad y mantenimiento</h2>
+            <p>El proyecto aplica revisiones de código, pruebas automatizadas y controles de seguridad como parte de su proceso de desarrollo. Estos controles reducen riesgos, pero no eliminan todos los fallos posibles ni acreditan por sí mismos conformidad legal o médica.</p>
+            <p>Los cambios relevantes en las prácticas de tratamiento de datos deben trasladarse a las políticas oficiales y, cuando corresponda, a las declaraciones de Google Play y al mecanismo de consentimiento.</p>
+        </section>
+
+        <section>
+            <h2>7. Estado documental</h2>
+            <p>Esta página sustituye el informe técnico de julio de 2025, cuyo contenido sobre funcionalidades, clases internas y supuestas prestaciones diagnósticas había quedado desactualizado. Para consultas legales o de privacidad, utilice los canales indicados en el aviso legal.</p>
         </section>
 
         <footer>
-            <p>© 2025 tigredev. Todos los derechos reservados.</p>
+            <p>© 2026 tigredev. MiBienestar.</p>
         </footer>
     </div>
 
