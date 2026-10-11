@@ -29,4 +29,5 @@ for (const forbidden of [
 }
 assert.doesNotMatch(html, /<script\b/i, "Project page must remain script-free");
 assert.doesNotMatch(html, /http:\/\//i, "Insecure HTTP link is forbidden");
+assert.match(html, /La retirada del consentimiento para datos de salud y la eliminación de una cuenta son decisiones distintas/);
 console.log("Project documentation guard passed.");
